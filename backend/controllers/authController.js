@@ -17,23 +17,24 @@ const register = async (req, res) => {
 			username: username.toLowerCase(),
 			email: email.toLowerCase(),
 			password: hashedPassword,
-            phNumber:phNumber,
+			phNumber: phNumber,
 		});
 		try {
 			const uniqueUser = await User.findOne({ username });
 			const oldUser = await User.findOne({ email });
-			if (uniqueUser) return res.status(400).json("username already taken");
-			if (oldUser) return res.status(400).json("user already exists");
+			if (oldUser) return res.status(400).json({ message: "user Already exists", success: false });
+			if (uniqueUser) return res.status(400).json({ message: "Username already taken", success: false });
 			const user = await newUser.save();
 			res.status(200).json({
 				accessToken: jwt.sign(
 					user._id.toString(),
 					process.env.ACCESS_TOKEN_SECRET
-				),
-				user,
+				), user,
+				message: "user created",
+				success: true,
 			});
 		} catch (error) {
-            console.log(error)
+			console.log(error)
 			res.status(500).json("error0");
 		}
 
@@ -51,20 +52,21 @@ const login = async (req, res) => {
 			? await User.findOne({ email: req.body.email.toLowerCase() })
 			: await User.findOne({ username: req.body.username.toLowerCase() });
 		if (!user) {
-			!user && res.status(404).json("user not found");
+			!user && res.status(404).json({ message: "User does not exists !!", success: false });
 		} else {
 			const validPassword = await bcrypt.compare(
 				req.body.password,
 				user.password
 			);
 			!validPassword
-				? res.status(400).json("wrong password")
+				? res.status(400).json({ message: "Invalid Credentials !!", success: false })
 				: res.status(200).json({
-						accessToken: jwt.sign(
-							user._id.toString(),
-							process.env.ACCESS_TOKEN_SECRET
-						),
-				  });
+					accessToken: jwt.sign(
+						user._id.toString(),
+						process.env.ACCESS_TOKEN_SECRET
+					), user,
+					success: true,
+				});
 		}
 	} catch (error) {
 		console.log(error);
@@ -73,17 +75,17 @@ const login = async (req, res) => {
 };
 
 
-const resetPassword = async (req,res) => {
+const resetPassword = async (req, res) => {
 	try {
 		const { email, password, newpassword } = req.body;
-		const user = await User.findOne({email:email.toLowerCase()});
-		const verified = await bcrypt.compare(password,user.password);
-		if(verified){
+		const user = await User.findOne({ email: email.toLowerCase() });
+		const verified = await bcrypt.compare(password, user.password);
+		if (verified) {
 			const salt = await bcrypt.genSalt(10);
 			const hashed = await bcrypt.hash(newpassword, salt);
-			const newPassword = await User.findByIdAndUpdate(user._id,{password:hashed,},{new:true,},);
+			const newPassword = await User.findByIdAndUpdate(user._id, { password: hashed, }, { new: true, },);
 			res.json(newPassword);
-		}else{
+		} else {
 			throw new Error("Wrong Password");
 		}
 	} catch (error) {
@@ -91,7 +93,7 @@ const resetPassword = async (req,res) => {
 		res.status(500).json("error");
 	}
 
-}
+};
 
 module.exports = {
 	register,
