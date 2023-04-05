@@ -20,8 +20,10 @@ const register = async (req, res) => {
             phNumber:phNumber,
 		});
 		try {
-			const oldUser = await User.findOne({ username });
-			if (oldUser) return res.status(400).json("username already taken");
+			const uniqueUser = await User.findOne({ username });
+			const oldUser = await User.findOne({ email });
+			if (uniqueUser) return res.status(400).json("username already taken");
+			if (oldUser) return res.status(400).json("user already exists");
 			const user = await newUser.save();
 			res.status(200).json({
 				accessToken: jwt.sign(
