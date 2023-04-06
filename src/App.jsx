@@ -8,6 +8,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Home from './pages/home/Home';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/" element={localStorage.getItem("token")?<Home/>:<Navigate to="/login"/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
+          <Route path="/resetpassword" element={<ForgotPassword/>}/>
         </Routes>
       </Router>
     </div>

@@ -57,7 +57,7 @@ function Login() {
                             <label htmlFor="rememberMe"> Remember Me</label>
                         </div>
                         <div className="forgotPassword">
-                            <a href="#">Forgot Password?</a>
+                            <Link to="/resetpassword">Forgot Password?</Link>
                         </div>
                     </div>
                     <div className="notamember">Not a Member? <Link to="/signup">SignUp</Link></div>

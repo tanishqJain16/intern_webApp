@@ -84,13 +84,13 @@ const resetPassword = async (req, res) => {
 			const salt = await bcrypt.genSalt(10);
 			const hashed = await bcrypt.hash(newpassword, salt);
 			const newPassword = await User.findByIdAndUpdate(user._id, { password: hashed, }, { new: true, },);
-			res.json(newPassword);
+			res.status(200).json({success:true, message:"Password Changed Successfully"});
 		} else {
-			throw new Error("Wrong Password");
+			throw new Error({message:"Wrong Password",success:false});
 		}
 	} catch (error) {
 		console.log(error);
-		res.status(500).json("error");
+		res.status(500).json({message:"Wrong Credentials",success:false});
 	}
 
 };
