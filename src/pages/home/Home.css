@@ -1,4 +1,4 @@
-.home{
+/* .home{
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -18,4 +18,80 @@
     color: #fff;
     cursor: pointer;
     margin-top: 3rem;
+} */
+
+.home{
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    /* align-items: center; */
+    background-color: #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.home>.sidebar{
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.home>.sidebar>div{
+    display: flex;
+    justify-content: flex-start;
+    width: 15rem;
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.7rem;
+    border-radius: 5px;
+    color: #4e4e4e;
+    /* font-family: "Arial", "Font Awesome"; */
+}
+
+.home>.sidebar>div:hover{
+    color: rgb(0, 102, 255);
+    background-color: #e3e1e1;
+    font-weight: 600;
+}
+
+.home>.main{
+    width: 100vw;
+}
+
+.home>.main>.firstRow{
+    display: flex;
+    justify-content: space-between;
+    padding-right:2rem;
+    /* align-items: center; */
+    margin-top: 4rem;
+}
+
+.home>.main>.firstRow>button{
+    background-color: rgb(0, 102, 255);
+    color: #e3e1e1;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    border: none;
+    margin-top: -1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.home>.main>.firstRow>button:hover{
+    background-color: rgb(3, 79, 194);
+}
+
+.home>.main>.firstRow>button:disabled{
+    background-color: #ccc;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.home>.main>.secondrow{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -2rem ;
+    margin-left: -4rem;
 }

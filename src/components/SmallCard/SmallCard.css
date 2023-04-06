@@ -1,0 +1,53 @@
+.smallCard{
+    width: 18vw;
+    height: 23vh;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
+    /* padding: 20px; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.smallCard>.smallHeading{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: #676767;
+    font-weight:bold;
+}
+
+.smallCard>.count{
+    margin-top: 2rem;
+    margin-left: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    display: flex;
+}
+
+.smallCard>.count{
+    display: grid;
+    grid-template-columns:1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "count count" "count count";
+}
+
+.smallCard>.percent{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 1rem;
+    margin-top: -1rem;
+    display: flex;
+}
+
+.smallCard>.percent>.green{
+    color: #00b300;
+}
+
+.smallCard>.percent>.red{
+    color: #ff0000;
+}
+
+
