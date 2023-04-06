@@ -29,7 +29,7 @@ const register = async (req, res) => {
 				accessToken: jwt.sign(
 					user._id.toString(),
 					process.env.ACCESS_TOKEN_SECRET
-				), user,
+				),
 				message: "user created",
 				success: true,
 			});
@@ -64,7 +64,7 @@ const login = async (req, res) => {
 					accessToken: jwt.sign(
 						user._id.toString(),
 						process.env.ACCESS_TOKEN_SECRET
-					), user,
+					),
 					success: true,
 				});
 		}

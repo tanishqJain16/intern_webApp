@@ -2,12 +2,19 @@ import React from 'react'
 import "./Home.css"
 
 function Home() {
-  if(!localStorage.getItem('token')){
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.href = "/login";
+  }
+  if (!localStorage.getItem('token')) {
     window.location.href = "/login";
   }
   return (
     <div className='home'>
-      This is Home page
+      <h1>This is Home page</h1>
+      <button className="logout" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   )
 }

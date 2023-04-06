@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const authRoute = require("./routes/authRoute");
+const userRoute = require("./routes/userRoute");
 const cors = require("cors");
 
 require("dotenv").config();
@@ -47,6 +48,7 @@ app.use(cors("http://localhost:3000"));
 
 //routes
 app.use("/auth", authRoute);
+app.use("/user", userRoute);
 
 app.listen(PORT, () => {
   console.log(`server listening on ${PORT}`);
