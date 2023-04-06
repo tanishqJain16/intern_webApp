@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import "./ForgotPassword.css"
 
 function ForgotPassword() {
+    const [btnDisabled, setBtnDisabled] = useState(false)
     const [creds, setCreds] = useState({ email: "", password: "", newpassword: "" })
     const handleChange = (e) => {
         setCreds({ ...creds, [e.target.name]: e.target.value });
     }
     const handlesubmit = async (e) => {
         e.preventDefault();
+        setBtnDisabled(true);
         const { email, password, newpassword } = creds;
         const response = await fetch("http://localhost:5000/auth/resetpassword", {
             method: "PUT",
@@ -21,7 +23,7 @@ function ForgotPassword() {
             }),
         });
         const json = await response.json();
-        console.log(json);
+        setBtnDisabled(false);
         if (json.success) {
             alert("Password Reset Successfully")
             window.location.href = "/";
@@ -42,7 +44,7 @@ function ForgotPassword() {
             <input type="password" name="password" id="password" placeholder="Enter your password" onChange={handleChange}/>
             <label className='password' htmlFor="password">NEW PASSWORD</label>
             <input type="password" name="newpassword" id="newpassword" placeholder="Enter your new password" onChange={handleChange}/>
-            <button className="resetbutton" onClick={handlesubmit}>Submit</button>
+            <button className="resetbutton" disabled={btnDisabled} onClick={handlesubmit}>Submit</button>
             {/* <div className="extraDetails">
                 <div className="rememberMecheck">
                     <input

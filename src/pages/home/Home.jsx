@@ -8,14 +8,12 @@ function Home() {
   const [btnDisabled, setBtnDisabled] = useState(false)
 
   const getCurrentUser = () => {
-    setBtnDisabled(true);
     axios.get("http://localhost:5000/user/getuser", {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem('token')}`
       },
     }).then((response) => {
-      setBtnDisabled(false);
       if (response.data.success) {
         setCurrentUser({ username: response.data.user.username, email: response.data.user.email })
       }
@@ -23,7 +21,6 @@ function Home() {
         alert(json.message);
       }
     }).catch((err) => {
-      setBtnDisabled(false);
       console.log(err)
     })
 
@@ -35,7 +32,9 @@ function Home() {
 
 
   const handleLogout = () => {
+    setBtnDisabled(true);
     localStorage.removeItem('token');
+    setBtnDisabled(false);
     window.location.href = "/login";
   }
   if (!localStorage.getItem('token')) {
@@ -43,19 +42,19 @@ function Home() {
   }
   return (
     <div className='home'>
-      <div className="sidebar" style={{ fontFamily: "Arial, FontAwesome" }}>
-        <div>&#xf015; Dashboard</div>
-        <div>&#xf53f; UI Elements</div>
-        <div>&#xf03a; Form Elements</div>
-        <div>&#xf200; Charts</div>
-        <div>&#xf00b; Tables</div>
-        <div>&#xf005; Icons</div>
-        <div>&#xf007; User Pages</div>
-        <div>&#xf02d; Documentation</div>
+      <div className="sidebar">
+        <div style={{ fontFamily: "Arial, FontAwesome" }}>&#xf015; Dashboard</div>
+        <div style={{ fontFamily: "Arial, FontAwesome" }}>&#xf53f; UI Elements</div>
+        <div style={{ fontFamily: "Arial, FontAwesome" }}>&#xf03a; Form Elements</div>
+        <div style={{ fontFamily: "Arial, FontAwesome" }}>&#xf200; Charts</div>
+        <div style={{ fontFamily: "Arial, FontAwesome" }}>&#xf00b; Tables</div>
+        <div style={{ fontFamily: "Arial, FontAwesome" }}>&#xf005; Icons</div>
+        <div style={{ fontFamily: "Arial, FontAwesome" }}>&#xf007; User Pages</div>
+        <div style={{ fontFamily: "Arial, FontAwesome" }}>&#xf02d; Documentation</div>
       </div>
       <div className="main">
         <div className="firstRow">
-          <h2> RoyalUI Dashboard</h2>
+          <h2> RoyalUI Dashboard </h2>
           <button className="logout" style={{ fontFamily: "Arial, FontAwesome" }} onClick={handleLogout} disabled={btnDisabled}>&#xf2f5; Logout</button>
         </div>
         <div className="secondrow">
