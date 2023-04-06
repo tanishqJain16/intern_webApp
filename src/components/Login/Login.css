@@ -88,6 +88,11 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
+.card>.signinForm>div>button:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
  .extraDetails {
 	display: flex;
 	justify-content: space-between;

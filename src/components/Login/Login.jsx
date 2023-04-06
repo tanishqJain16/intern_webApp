@@ -5,11 +5,13 @@ import './Login.css'
 
 function Login() {
     const [creds, setCreds] = useState({ email: "", password: "" })
+    const [btnDisable, setBtnDisable] = useState(false)
     const handleChange = (e) => {
         setCreds({ ...creds, [e.target.name]: e.target.value });
     }
     const handlesubmit = async (e) => {
         e.preventDefault();
+        setBtnDisable(true);
         const { email, password } = creds;
         const response = await fetch("http://localhost:5000/auth/login", {
             method: "POST",
@@ -22,7 +24,7 @@ function Login() {
             }),
         });
         const json = await response.json();
-        console.log(json);
+        setBtnDisable(false);
         if (json.success) {
             // save the auth token and redirect
             localStorage.setItem("token", json.accessToken);
@@ -45,7 +47,7 @@ function Login() {
                     <input type="text" name="email" id="email" placeholder="Enter your email" onChange={handleChange}/>
                     <label className='password' htmlFor="password">PASSWORD</label>
                     <input type="password" name="password" id="password" placeholder="Enter your password" onChange={handleChange}/>
-                    <button className="signinbtn" onClick={handlesubmit}>signin</button>
+                    <button className="signinbtn" disabled={btnDisable} onClick={handlesubmit}>SignUp</button>
                     <div className="extraDetails">
                         <div className="rememberMecheck">
                             <input

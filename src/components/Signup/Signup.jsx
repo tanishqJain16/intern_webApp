@@ -4,11 +4,13 @@ import signupImg from '../../assets/images/sign-up.jpg'
 import { Link } from 'react-router-dom'
 
 function Signup() {
+    const [btnDisable, setBtnDisable] = useState(false)
     const [creds, setCreds] = useState({ email: "", username:"", password: "", phNumber: "" })
     const onChange = (e) => {
         setCreds({ ...creds, [e.target.name]: e.target.value });
     }
     const handleSignin = async (e) => {
+        setBtnDisable(true);
         e.preventDefault();
         const { email, username, password, phNumber } = creds;
         const response = await fetch("http://localhost:5000/auth/register", {
@@ -24,7 +26,7 @@ function Signup() {
             }),
         });
         const json = await response.json();
-        console.log(json);
+        setBtnDisable(false);
         if (json.success) {
             // save the auth token and redirect
             localStorage.setItem("token", json.accessToken);
@@ -50,7 +52,7 @@ function Signup() {
                     <input type="password" name="password" id="password" required placeholder="Enter your password" onChange={onChange}/>
                     <label className='phnumber' htmlFor="phnumber">CONTACT NUMBER</label>
                     <input type="number" name="phNumber" id="phNumber" required placeholder="Enter your contact number" onChange={onChange}/>
-                    <button className="signupbtn" onClick={handleSignin}>SignUp</button>
+                    <button className="signupbtn" disabled={btnDisable} onClick={handleSignin}>SignUp</button>
                     <div className="alreadyamember">Already a Member? <Link to="/login">SignIn</Link></div>
                 </div>
             </div>

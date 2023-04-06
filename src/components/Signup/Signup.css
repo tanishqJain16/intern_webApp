@@ -88,41 +88,11 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
- .extraDetails {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-    margin-top: 10px;
+.card>.signupForm>div>button:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
- .extraDetails > .rememberMecheck {
-	accent-color:  rgb(231, 158, 2);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 0.25rem;
-}
-
-.extraDetails > .rememberMecheck > input {
-	cursor: pointer;
-}
-
-.extraDetails > .rememberMecheck > label {
-	font-size: 0.8rem;
-	cursor: pointer;
-}
-
-.extraDetails > .forgotPassword>a {
-	font-size: 0.8rem;
-    color: #000;
-    cursor: pointer;
-    text-decoration: none;
-}
-
- .extraDetails > .forgotPassword>a:hover {
-	color:  rgb(231, 158, 2)
-}
 
 .alreadyamember{
     margin-top: 20px;
