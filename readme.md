@@ -2,24 +2,25 @@
 
 This is a simple React project that implements a login/signup functionality. The project also includes a backend built with Node.js and Express.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 ## Installation
 
 To install this project, follow these steps:
 
 1. Clone the repository onto your local machine using the following command:
    `git clone https://github.com/<USERNAME>/<REPOSITORY_NAME>.git`
-2. Install the necessary dependencies for the client by running the following command:
+2. Navigate into the project directory using the following command:
+    `cd <REPOSITORY_NAME>`
+3. Install the necessary dependencies for the client by running the following command:
     `npm install`
-3. Navigate into the backend directory using the following command:
+4. Navigate into the backend directory using the following command:
     `cd ../backend`
-4. Install the necessary dependencies for the backend by running the following command:
+5. Install the necessary dependencies for the backend by running the following command:
     `npm install`
 
 ## Usage
 
-To run the client:
+To run the client, navigate into the main directory using the following command:
+`cd <REPOSITORY_NAME>`
 
 Then run the following command:
     `npm start`
