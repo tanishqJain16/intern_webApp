@@ -1,0 +1,28 @@
+.bigCard{
+    width: 38.8vw;
+    min-height: 54.2vh;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
+    /* padding: 20px; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.bigCard>.heading{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: #676767;
+    font-weight:600;
+}
+
+.bigCard>.subheading{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: #676767;
+    font-size: 0.8rem;
+    text-align: start;
+}

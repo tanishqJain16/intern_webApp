@@ -19,7 +19,12 @@
 }
 
 .sidebar>div>a:hover{
-    color: rgb(0, 102, 255);
+    color: #292929;
+    font-weight: 600;
+}
+
+.sidebar>.active>a{
+    color: rgb(0, 102, 255) !important;
     background-color: #e3e1e1;
     font-weight: 600;
 }

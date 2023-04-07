@@ -4,6 +4,8 @@ import axios from 'axios'
 import SmallCard from '../../components/SmallCard/SmallCard'
 import { Link } from 'react-router-dom'
 import Sidebar from '../../components/Sidebar/Sidebar'
+import BigCard from '../../components/BigCard/BigCard'
+import BarChart from '../../components/BarChart/BarChart'
 
 function Home() {
   const [currentUser, setCurrentUser] = useState({ username: "", email: "" })
@@ -65,6 +67,10 @@ function Home() {
           <SmallCard smallHeading={"REVENUE"} count={21230} icon={"fa-solid fa-user"} percent={0.28} days={70}/>
           <SmallCard smallHeading={"DOWNLOADS"} count={45736} icon={"fa-solid fa-download"} percent={13.6} days={90}/>
           <SmallCard smallHeading={"RETURNS"} count={64792} icon={"fa-solid fa-copy"} percent={55.1} days={85}/>
+        </div>
+        <div className="thirdrow">
+          <BigCard heading={"SALES DETAILS"} subHeading={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non fuga est eligendi dolorum consequatur eveniet, itaque quae, doloribus error asperiores autem. Odit mollitia eius eligendi repellendus dicta asperiores quia pariatur."} chart={"bar"}/>
+          <BigCard heading={"PURCHASES"} subHeading={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non fuga est eligendi dolorum consequatur eveniet, itaque quae, doloribus error asperiores autem. Odit mollitia eius eligendi repellendus dicta asperiores quia pariatur."}/>
         </div>
       </div>
     </div>
