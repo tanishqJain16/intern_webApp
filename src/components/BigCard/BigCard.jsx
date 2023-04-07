@@ -1,7 +1,7 @@
 import React from 'react'
 import "./BigCard.css"
-import BarChart from '../BarChart/BarChart'
-import AreaChartComponent from '../AreaChart/AreaChart'
+import AreaChartComponent from '../AreaChartComponent/AreaChartComponent'
+import BarChartComponent from '../BarChartComponent/BarChartComponent'
 
 function BigCard(props) {
     return (
@@ -12,7 +12,8 @@ function BigCard(props) {
             <div className="subheading">
                 {props.subHeading}
             </div>
-            {props.chart==="bar"?<BarChart/>:<AreaChartComponent/>}
+            <br />
+            {props.chart==="bar"?<BarChartComponent/>:<AreaChartComponent/>}
         </div>
     )
 }

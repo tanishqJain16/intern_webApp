@@ -5,7 +5,6 @@ import SmallCard from '../../components/SmallCard/SmallCard'
 import { Link } from 'react-router-dom'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import BigCard from '../../components/BigCard/BigCard'
-import BarChart from '../../components/BarChart/BarChart'
 
 function Home() {
   const [currentUser, setCurrentUser] = useState({ username: "", email: "" })
