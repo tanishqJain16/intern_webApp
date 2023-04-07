@@ -1,4 +1,0 @@
-{/* <h1>This is Home page {`${currentUser.username}`}</h1> */}
-      {/* <button className="logout" onClick={handleLogout}>
-        Logout
-      </button> */}

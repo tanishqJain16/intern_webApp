@@ -1,6 +1,5 @@
 import React from 'react'
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
-import Months from '../Months/Months';
 
 function BarChartComponent() {
     const data = [
@@ -54,8 +53,8 @@ function BarChartComponent() {
                 <YAxis />
                 <XAxis dataKey="name"/>
                 <Tooltip />
-                <Bar dataKey="online" fill="#6895FF" />
-                <Bar dataKey="offline" fill="#316FFF" />
+                <Bar dataKey="online" animationBegin={0} animationDuration={400} animationEasing="linear" fill="#6895FF" />
+                <Bar dataKey="offline" animationBegin={0} animationDuration={400} animationEasing="linear" fill="#316FFF" />
             </BarChart>
         </ResponsiveContainer>
     )
