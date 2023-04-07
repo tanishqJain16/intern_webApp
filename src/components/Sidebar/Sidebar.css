@@ -1,0 +1,25 @@
+.sidebar{
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar>div>a{
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    width: 15rem;
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.7rem;
+    border-radius: 5px;
+    color: #4e4e4e;
+}
+
+.sidebar>div>a:hover{
+    color: rgb(0, 102, 255);
+    background-color: #e3e1e1;
+    font-weight: 600;
+}

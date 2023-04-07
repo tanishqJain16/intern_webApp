@@ -1,0 +1,14 @@
+.tablesPage{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ccc;
+}
+
+.tablesPage>.mainTablesPage{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

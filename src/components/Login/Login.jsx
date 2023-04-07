@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import signupImg from '../../assets/images/sign-up.jpg'
 import './Login.css'
+import Home from '../../pages/home/Home'
 
 function Login() {
     const [creds, setCreds] = useState({ email: "", password: "" })

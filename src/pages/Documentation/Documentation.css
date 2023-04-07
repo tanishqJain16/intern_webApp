@@ -1,0 +1,14 @@
+.documentation{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ccc;
+}
+
+.documentation>.mainDocumentation{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
