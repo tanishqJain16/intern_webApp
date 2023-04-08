@@ -34,7 +34,7 @@ function Signup() {
             localStorage.setItem("token", json.accessToken);
             toast.success("Signup Successful");
             setTimeout(() => {
-                navigate(-1);
+                window.location.href = "/";
             }, 500);
         } else {
             // alert(json.message);

@@ -20,8 +20,6 @@ import Navbar from './components/Navbar/Navbar';
 import { Toaster } from 'react-hot-toast';
 
 function App() {
-const token = localStorage.getItem("token");
-console.log(token)
   return (
     <div className="App">
       <Toaster/>

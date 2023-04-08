@@ -33,7 +33,9 @@ function Login() {
             localStorage.setItem("token", json.accessToken);
             // console.log(json.authtoken)
             toast.success("Login Successful");
-            navigate("../");
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 500);
             
         } else {
             toast.error(json.message);

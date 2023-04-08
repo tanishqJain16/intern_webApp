@@ -21,7 +21,7 @@ function Home() {
     }).then((response) => {
       if (response.data.success) {
         setCurrentUser({ username: response.data.user.username, email: response.data.user.email })
-        toast.success(`welcome ${response.data.user.username}`);
+        toast.success(`Welcome ${response.data.user.username}`);
       }
       else {
         alert(json.message);
@@ -41,7 +41,8 @@ function Home() {
     localStorage.removeItem('token');
     setBtnDisabled(false);
     toast.success("Logout Successful");
-    navigate("/login");
+    // navigate("/login");
+    window.location.href = "/login";
   }
 
   return (
