@@ -16,11 +16,13 @@ import IconsPage from './pages/IconsPage/IconsPage';
 import Tables from './pages/Tables/Tables';
 import UiElements from './pages/UiElements/UiElements';
 import UserPage from './pages/UsersPage/UserPage';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
 
   return (
     <div className="App">
+      <Navbar/>
       <Router>
         <Routes>
           <Route exact path="/" element={localStorage.getItem("token")?<Home/>:<Navigate to="/login"/>}/>

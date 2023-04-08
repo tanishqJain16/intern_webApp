@@ -5,7 +5,11 @@
     flex-direction: column;
 }
 
-.sidebar>div>a{
+.sidebar>div>a>.displayNone{
+    display: none;
+}
+
+.sidebar>div>.normal{
     text-decoration: none;
     display: flex;
     justify-content: flex-start;
@@ -17,15 +21,44 @@
     padding: 0.7rem;
     border-radius: 5px;
     color: #4e4e4e;
+    /* color:transparent; */
 }
 
-.sidebar>div>a:hover{
+
+.sidebar>div>.closeIt{
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    width: 3rem;
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.7rem;
+    border-radius: 5px;
+}
+
+.sidebar>div>a>i{
+    color: #4e4e4e;
+}
+
+
+.sidebar>div>.normal:hover{
     color: #292929;
     font-weight: 600;
 }
 
-.sidebar>.active>a{
+.sidebar>div>.closeIt:hover{
+    color: transparent;
+    font-weight: 600;
+}
+
+.sidebar>.active>.normal{
     color: rgb(0, 102, 255) !important;
     background-color: #e3e1e1;
     font-weight: 600;
+}
+
+.sidebar>.active>a>i{
+    color:rgb(0, 102, 255) !important;
 }
