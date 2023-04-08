@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import "./ForgotPassword.css"
+import { toast } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 function ForgotPassword() {
+    const navigate=useNavigate();
     const [btnDisabled, setBtnDisabled] = useState(false)
     const [creds, setCreds] = useState({ email: "", password: "", newpassword: "" })
     const handleChange = (e) => {
@@ -25,10 +28,11 @@ function ForgotPassword() {
         const json = await response.json();
         setBtnDisabled(false);
         if (json.success) {
-            alert("Password Reset Successfully")
-            window.location.href = "/";
+            toast.success("Password Reset Successfully");
+            navigate("/login");
+            // window.location.href = "/";
         } else {
-            alert(json.message);
+            toast.error(json.message);
         }
     }
 

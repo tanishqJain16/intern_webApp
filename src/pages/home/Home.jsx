@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import "./Home.css"
 import axios from 'axios'
 import SmallCard from '../../components/SmallCard/SmallCard'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import BigCard from '../../components/BigCard/BigCard'
+import { toast } from 'react-hot-toast'
 
 function Home() {
+  const navigate=useNavigate();
   const [currentUser, setCurrentUser] = useState({ username: "", email: "" })
   const [btnDisabled, setBtnDisabled] = useState(false)
 
@@ -19,6 +21,7 @@ function Home() {
     }).then((response) => {
       if (response.data.success) {
         setCurrentUser({ username: response.data.user.username, email: response.data.user.email })
+        toast.success(`welcome ${response.data.user.username}`);
       }
       else {
         alert(json.message);
@@ -28,38 +31,26 @@ function Home() {
     })
 
   }
+
   useEffect(() => {
     getCurrentUser();
   }, [])
-
-
 
   const handleLogout = () => {
     setBtnDisabled(true);
     localStorage.removeItem('token');
     setBtnDisabled(false);
-    window.location.href = "/login";
+    toast.success("Logout Successful");
+    navigate("/login");
   }
-  if (!localStorage.getItem('token')) {
-    window.location.href = "/login";
-  }
+
   return (
     <div className='home'>
-      {/* <div className="sidebar">
-        <div><Link to="/" style={{ fontFamily: "Arial, FontAwesome" }}>&#xf015; Dashboard</Link></div>
-        <div><Link to="/uielements" style={{ fontFamily: "Arial, FontAwesome" }}>&#xf53f; UI Elements</Link></div>
-        <div><Link to="/formselements" style={{ fontFamily: "Arial, FontAwesome" }}>&#xf03a; Form Elements</Link></div>
-        <div><Link to="/charts" style={{ fontFamily: "Arial, FontAwesome" }}>&#xf200; Charts</Link></div>
-        <div><Link to="/tables" style={{ fontFamily: "Arial, FontAwesome" }}>&#xf00b; Tables</Link></div>
-        <div><Link to="/iconspage" style={{ fontFamily: "Arial, FontAwesome" }}>&#xf005; Icons</Link></div>
-        <div><Link to="/usersPage" style={{ fontFamily: "Arial, FontAwesome" }}>&#xf007; User Pages</Link></div>
-        <div><Link to="/documentation" style={{ fontFamily: "Arial, FontAwesome" }}>&#xf02d; Documentation</Link></div>
-      </div> */}
       <Sidebar/>
       <div className="main">
         <div className="firstRow">
           <h2> RoyalUI Dashboard</h2>
-          <button className="logout" style={{ fontFamily: "Arial, FontAwesome" }} onClick={handleLogout} disabled={btnDisabled}>&#xf2f5; Logout</button>
+          <button className="logout" onClick={handleLogout} disabled={btnDisabled}><i className="fa-solid fa-right-from-bracket"></i>&nbsp;<span className="dontDisplay">Logout</span></button>
         </div>
         <div className="secondrow">
           <SmallCard smallHeading={"SALES"} count={32435} icon={"fa-regular fa-calendar"} percent={0.33} days={80}/>

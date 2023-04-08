@@ -14,8 +14,9 @@ function Navbar() {
         // setMenuOpen(!menuOpen)
         dispatch({type:"TOGGLE_MENU"})
     }
+    const token=localStorage.getItem("token");
     return (
-        <div className="navbar">
+        <div className={`${token?"navbar":"navbarNone"}`}>
             <div className={`${isMenuOpened?"logo":"closedLogo"}`}>
                 <img src={isMenuOpened?logo:logo2} alt="logo" />
             </div>

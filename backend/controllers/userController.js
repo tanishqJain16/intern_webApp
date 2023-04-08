@@ -9,7 +9,7 @@ const getUser = async (req, res) => {
         user
       });
     } catch (err) {
-      res.status(500).json({ message: "internal server error :)" });
+      res.status(500).json({message:"Internal Server error",success:false});
     }
 };
 

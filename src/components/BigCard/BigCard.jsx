@@ -13,7 +13,7 @@ function BigCard(props) {
                 {props.subHeading}
             </div>
             <br />
-            {props.chart==="bar"?<BarChartComponent/>:<AreaChartComponent/>}
+            {props.chart === "bar" ? <BarChartComponent /> : <AreaChartComponent />}
         </div>
     )
 }

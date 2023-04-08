@@ -26,3 +26,16 @@
     font-size: 0.8rem;
     text-align: start;
 }
+
+@media only screen and (max-width: 1300px){
+    .bigCard{
+        width: 58.8vw;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .bigCard{
+        width: 75.8vw;
+        /* margin-left: -3rem; */
+    }
+}

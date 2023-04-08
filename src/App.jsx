@@ -17,17 +17,20 @@ import Tables from './pages/Tables/Tables';
 import UiElements from './pages/UiElements/UiElements';
 import UserPage from './pages/UsersPage/UserPage';
 import Navbar from './components/Navbar/Navbar';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
-
+const token = localStorage.getItem("token");
+console.log(token)
   return (
     <div className="App">
+      <Toaster/>
       <Navbar/>
       <Router>
         <Routes>
-          <Route exact path="/" element={localStorage.getItem("token")?<Home/>:<Navigate to="/login"/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/" element={localStorage.getItem("token")?<Home/>:<Navigate to="/login"/>}/>
+          <Route path="/login" element={!localStorage.getItem("token")?<Login/>:<Navigate to="/"/>}/>
+          <Route path="/signup" element={!localStorage.getItem("token")?<Signup/>:<Navigate to="/"/>}/>
           <Route path="/resetpassword" element={<ForgotPassword/>}/>
           <Route path="/charts" element={<Charts/>}/>
           <Route path="/documentation" element={<Documentation/>}/>

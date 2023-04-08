@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import signupImg from '../../assets/images/sign-up.jpg'
 import './Login.css'
 import Home from '../../pages/home/Home'
+import { toast } from 'react-hot-toast'
 
 function Login() {
+    const navigate=useNavigate();
     const [creds, setCreds] = useState({ email: "", password: "" })
     const [btnDisable, setBtnDisable] = useState(false)
     const handleChange = (e) => {
@@ -30,9 +32,11 @@ function Login() {
             // save the auth token and redirect
             localStorage.setItem("token", json.accessToken);
             // console.log(json.authtoken)
-            window.location.href = "/";
+            toast.success("Login Successful");
+            navigate("../");
+            
         } else {
-            alert(json.message);
+            toast.error(json.message);
         }
     }
 
