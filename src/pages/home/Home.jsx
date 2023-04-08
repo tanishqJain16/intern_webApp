@@ -21,7 +21,6 @@ function Home() {
     }).then((response) => {
       if (response.data.success) {
         setCurrentUser({ username: response.data.user.username, email: response.data.user.email })
-        toast.success(`Welcome ${response.data.user.username}`);
       }
       else {
         alert(json.message);
