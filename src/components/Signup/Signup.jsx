@@ -15,7 +15,7 @@ function Signup() {
         setBtnDisable(true);
         e.preventDefault();
         const { email, username, password, phNumber } = creds;
-        const response = await fetch("http://localhost:5000/auth/register", {
+        const response = await fetch("https://intern-server.azurewebsites.net/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

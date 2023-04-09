@@ -13,7 +13,7 @@ function Home() {
   const [btnDisabled, setBtnDisabled] = useState(false)
 
   const getCurrentUser = () => {
-    axios.get("http://localhost:5000/user/getuser", {
+    axios.get("https://intern-server.azurewebsites.net/user/getuser", {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -40,7 +40,6 @@ function Home() {
     localStorage.removeItem('token');
     setBtnDisabled(false);
     toast.success("Logout Successful");
-    // navigate("/login");
     window.location.href = "/login";
   }
 

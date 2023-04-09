@@ -14,7 +14,7 @@ function ForgotPassword() {
         e.preventDefault();
         setBtnDisabled(true);
         const { email, password, newpassword } = creds;
-        const response = await fetch("http://localhost:5000/auth/resetpassword", {
+        const response = await fetch("https://intern-server.azurewebsites.net/auth/resetpassword", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
