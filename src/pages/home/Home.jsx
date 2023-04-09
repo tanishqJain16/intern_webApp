@@ -40,7 +40,7 @@ function Home() {
     localStorage.removeItem('token');
     setBtnDisabled(false);
     toast.success("Logout Successful");
-    window.location.href = "/login";
+    window.location.href = "/";
   }
 
   return (
