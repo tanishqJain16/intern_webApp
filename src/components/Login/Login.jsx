@@ -54,7 +54,7 @@ function Login() {
                     <input type="text" name="email" id="email" placeholder="Enter your email" onChange={handleChange}/>
                     <label className='password' htmlFor="password">PASSWORD</label>
                     <input type="password" name="password" id="password" placeholder="Enter your password" onChange={handleChange}/>
-                    <button className="signinbtn" disabled={btnDisable} onClick={handlesubmit}>SignUp</button>
+                    <button className="signinbtn" disabled={btnDisable} onClick={handlesubmit}>SignIn</button>
                     <div className="extraDetails">
                         <div className="rememberMecheck">
                             <input
